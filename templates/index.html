@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   
+</head>
+    
+	<h1>{{ plant }}</h1>
+  <div id="d3_chart" class="noop-svg-container" width="300" height="300"></div>
+  <input type="checkbox" id="rawMoisture" /><label for="rawMoisture">Show raw moisture</label>
+  <div id="temp_chart" class="noop-svg-container" width="300" height="300"></div>
+  <h2>Plant names</h2>
+  <ul>
+  {% for plant_name in plant_names %}
+  <li><a href="{{ url_for('index', plant=plant_name) }}">{{ plant_name }}</a> </li>
+  {% endfor %}
+  </ul>
+</html>
+<script>
+      let plant = "{{ plant }}"
+    </script>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="{{ url_for('static', filename='draw.js') }}"></script>
+
+
